@@ -1,7 +1,21 @@
-import React from 'react'
+import { Link } from "react-router-dom";
+import { FaCloudMoon, FaUser } from "../../assets/icons";
 
 export const Header = () => {
   return (
-    <div>Header</div>
-  )
-}
+    <header className="quiz-header flex-align-center">
+      <Link to="/">
+        <h2 className="logo">StarBiz</h2>
+      </Link>
+
+      <div className="right-side flex-align-center">
+        <Link to="/">
+          <FaUser />
+        </Link>
+        <span>
+          <FaCloudMoon />
+        </span>
+      </div>
+    </header>
+  );
+};

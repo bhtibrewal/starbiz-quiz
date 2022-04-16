@@ -1,16 +1,17 @@
 import "./App.css";
-import {Routes, Route } from 'react-router-dom'
+import { Routes, Route } from "react-router-dom";
 import { HomePage } from "./pages";
-import { Footer } from "./components";
+import { Footer, Header } from "./components";
 
 function App() {
   return (
-    <div className="quiz-body">
+    <body className="quiz-body">
+      <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
       </Routes>
-      <Footer />
-    </div>
+      {/* <Footer /> */}
+    </body>
   );
 }
 

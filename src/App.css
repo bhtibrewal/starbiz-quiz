@@ -20,18 +20,23 @@ i.m-r {
 .quiz-body {
   background-color: var(--quiz-bg);
   color: var(--primary-text);
-  height: 100vh;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas:
-    "header header"
-    "main   main"
-    "footer footer";
 }
-.main{
-    grid-area:main;
-    
+.quiz-header {
+  padding: 3rem;
+  background: var(--quiz-header);
+  justify-content: space-between;
+  color: var(--light-text);
+}
+.logo,
+.right-side > * {
+  padding: 1rem;
+  cursor: pointer;
+}
+.right-side {
+  gap: 4rem;
+}
+.right-side > *:hover {
+  color: var(--primary-color);
 }
 /* utils */
 .flex-col {

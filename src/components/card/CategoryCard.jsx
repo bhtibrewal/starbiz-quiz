@@ -19,8 +19,8 @@ export const CategoryCard = () => {
             <div className="flex-align-center">
               <p>20 Questions</p>
               <Link to="" className=" take-quiz-btn link-text-primary ">
-                <p className="">Take Quiz</p>
-                <HiArrowNarrowRight />
+                <p className="flex-align-center">Take Quiz <HiArrowNarrowRight /></p>
+                
               </Link>
             </div>
           </div>
