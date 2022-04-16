@@ -1,0 +1,65 @@
+.categories-sec{
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    gap:2rem;
+}
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  grid-gap: 2rem;
+  align-self : stretch;
+}
+.categories-sec .card {
+  border: none;
+  transition: none;
+  transition: transform 0.5s ease-out;
+}
+.categories-sec .card:hover {
+  transform: scale(1.05);
+}
+.take-quiz-btn {
+  margin-left: auto;
+}
+
+/* leader section */
+.leaderboard-sec {
+  align-items: stretch;
+  max-width: 1000px;
+  margin: auto;
+}
+.section-heading {
+  align-self: center;
+}
+.leader-list {
+  gap: 2rem;
+}
+.leader-sec {
+  transition: transform 0.5s ease-out;
+}
+.leader-sec:hover {
+  transform: scale(1.05);
+}
+.leader-sec {
+  gap: 2rem;
+}
+.leader-rank {
+  border-radius: 50%;
+  background: var(--quiz-bg);
+  padding: 1rem;
+}
+.leader-img {
+  height: 7rem;
+  width: 7rem;
+}
+.leader-img img {
+  max-width: 100%;
+  border-radius: 50%;
+  border: 1px solid var(--quiz-bg);
+}
+.leader-name {
+  align-items: flex-start;
+}
+.leader-points {
+  margin-left: auto;
+}

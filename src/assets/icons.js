@@ -1,0 +1,1 @@
+export {HiArrowNarrowRight} from 'react-icons/hi';
