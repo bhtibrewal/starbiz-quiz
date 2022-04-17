@@ -1,11 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import { HomePage } from "./pages";
+import { Footer, Header } from "./components";
 
 function App() {
   return (
-    <div className="App">
-      
-    </div>
+    <body className="quiz-body">
+      <Header />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+      </Routes>
+      {/* <Footer /> */}
+    </body>
   );
 }
 
