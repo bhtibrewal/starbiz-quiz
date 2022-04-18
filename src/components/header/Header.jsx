@@ -9,7 +9,7 @@ export const Header = () => {
       </Link>
 
       <div className="right-side flex-align-center">
-        <Link to="/">
+        <Link to="/sign-in">
           <FaUser />
         </Link>
         <span>

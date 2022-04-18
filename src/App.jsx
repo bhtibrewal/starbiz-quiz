@@ -1,7 +1,10 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import { HomePage, QuestionPage } from "./pages";
+
+import { HomePage, QuestionPage, SignIn,  SignUp  } from "./pages";
+
 import { Footer, Header } from "./components";
+import { Toast } from "./components/toast/Toast";
 
 function App() {
   return (
@@ -10,8 +13,13 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/quiz/:quizTitle" element={<QuestionPage />} />
+
+        <Route path="/sign-in" element={<SignIn />} />
+        <Route path="/sign-up" element={<SignUp />} />
       </Routes>
       {/* <Footer /> */}
+      <Toast position='top-right'/>
+
     </div>
   );
 }
