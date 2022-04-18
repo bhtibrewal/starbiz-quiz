@@ -19,8 +19,8 @@ export const SignIn = () => {
     password: "",
   });
   const guestLogin = {
-    email: "adarshbalak@gmail.com",
-    password: "adarshBalaki123",
+    email: "guest@gmail.com",
+    password: "guest@123",
   };
   const [keepMeLoggedIn, setKeepMeLoggedIn] = useState(false);
 
