@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import { makeServer } from './server';
-import { AuthProvider,ToastProvider } from './contexts';
+import { AuthProvider, ToastProvider } from './contexts';
 
 
 makeServer();
@@ -14,8 +14,8 @@ root.render(
     <Router>
       <AuthProvider>
         <ToastProvider>
-        <App />
-        </ToastProvider
+          <App />
+        </ToastProvider>
       </AuthProvider>
     </Router>
   </React.StrictMode>
