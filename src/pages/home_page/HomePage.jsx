@@ -1,6 +1,12 @@
 import "./home_page.css";
 import { CategoryCard } from "../../components";
+import { useEffect, useState } from "react";
+import { getQuizzes } from "../../services";
 export const HomePage = () => {
+  const [quizzes, setQuizzes] = useState([]);
+  useEffect(() => {
+    getQuizzes({setQuizzes});
+  }, []);
   const leaderBoard = [
     {
       user_pic:
@@ -18,17 +24,16 @@ export const HomePage = () => {
     },
   ];
   return (
-    <main class="main quiz-main">
+    <main className="main quiz-main">
       {/* <!-- categories section --> */}
       <section className="section  categories-sec">
         <h1>Categories</h1>
         {/* <!-- grid --> */}
         <div className="categories-grid">
           {/* <!-- card start --> */}
-          {Array(3)
-            .fill()
-            .map((category) => {
-              return <CategoryCard category={category}/>;
+          {quizzes
+            .map((quiz, index) => {
+              return <CategoryCard key={index} quiz={quiz} />;
             })}
         </div>
       </section>
@@ -58,7 +63,6 @@ export const HomePage = () => {
           )}
         </div>
       </section>
-      
     </main>
   );
 };

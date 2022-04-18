@@ -1,0 +1,75 @@
+.question-sec {
+  padding: 2rem;
+  background: var(--light-bg);
+  width: 80%;
+  margin: auto;
+}
+.question-sec p {
+  padding: 1rem 0;
+}
+.ques-head {
+  align-self: stretch;
+}
+.ques-head p {
+  margin: auto;
+}
+.hint-btn {
+  justify-self: flex-end;
+  color: var(--primary-color);
+}
+.timer-alert {
+  color: var(--wrong-option);
+}
+/* options */
+.options {
+  padding: 1rem;
+  max-width: 30rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.options .btn-secondary {
+  min-height: 5rem;
+  width: 100%;
+}
+.options > * span {
+  width: 4rem;
+  padding: 1rem;
+  background: var(--quiz-bg);
+  border-radius: 50%;
+  aspect-ratio: 1;
+}
+.right-op,
+.wrong-op {
+  position: relative;
+}
+.wrong-op {
+  background: var(--wrong-option);
+}
+.right-op {
+  background: var(--right-option);
+}
+.right-op:after,
+.wrong-op:after {
+  font-family: "Font Awesome 6 Free"; /* for font awesome icons */
+  font-weight: 900; /* for font awesome icons */
+
+  padding: 2rem;
+  position: absolute;
+  top: 0;
+  right: -11rem;
+}
+.right-op:after {
+  content: "\f00c right";
+  color: var(--right-option);
+}
+.wrong-op:after {
+  content: "\f00d wrong";
+  color: var(--wrong-option);
+}
+.ques-nav {
+  justify-content: space-between;
+  max-width: 1024px;
+  margin: auto;
+}

@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { HiArrowNarrowRight } from "../../assets/icons.js";
 
-export const CategoryCard = () => {
+export const CategoryCard = ({quiz}) => {
+  const {_id, title, questions, } = quiz
   return (
     <div className="card w-30 basic">
       <div className="content">
@@ -17,10 +18,9 @@ export const CategoryCard = () => {
           <div className="card-body">
             <p>Take this quiz to test yourself</p>
             <div className="flex-align-center">
-              <p>20 Questions</p>
-              <Link to="" className=" take-quiz-btn link-text-primary ">
+              <p>{questions.length} Questions</p>
+              <Link to={`/quiz/${title}`} className=" take-quiz-btn link-text-primary ">
                 <p className="flex-align-center">Take Quiz <HiArrowNarrowRight /></p>
-                
               </Link>
             </div>
           </div>
