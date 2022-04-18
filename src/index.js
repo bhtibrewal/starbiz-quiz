@@ -6,6 +6,7 @@ import App from './App';
 import { makeServer } from './server';
 import { AuthProvider,ToastProvider } from './contexts';
 
+
 makeServer();
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -14,7 +15,7 @@ root.render(
       <AuthProvider>
         <ToastProvider>
         <App />
-        </ToastProvider>
+        </ToastProvider
       </AuthProvider>
     </Router>
   </React.StrictMode>
