@@ -1,5 +1,5 @@
 import { createContext, useContext } from "react";
-import { useUserData } from "../custom_hooks/useUserData";
+import { useUserData } from "../custom_hooks";
 
 const AuthContext = createContext();
 
