@@ -7,6 +7,7 @@ import {
   signupHandler,
 } from "./backend/controllers/AuthController";
 import { getQuizHandler, getQuizzesHandler } from "./backend/controllers/QuizController";
+import { postAttemptedQuizHandler, postResponseHandler } from "./backend/controllers/AttemptedQuizController";
 
 
 export function makeServer({ environment = "development" } = {}) {
@@ -52,6 +53,10 @@ export function makeServer({ environment = "development" } = {}) {
       // quiz route (private route)
       this.get('/quizzes/:quizTitle', getQuizHandler.bind(this));
 
+      // attempted quiz routes
+      this.post('/user/quizzes-attempted', postAttemptedQuizHandler.bind(this));
+      this.post('/user/quizzes-attempted/:quizId/:questionId',  postResponseHandler.bind(this) );
+    
     },
   });
   return server;

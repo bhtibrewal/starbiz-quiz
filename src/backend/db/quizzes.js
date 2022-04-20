@@ -3,7 +3,7 @@ import { v4 as uuid } from 'uuid';
 /* 
 quizzes data 
  */
-
+// The Office Quiz for true fans
 export const quizzes = [
     {
         _id: uuid(),
@@ -26,6 +26,20 @@ export const quizzes = [
                 options: ["Option 1", "Option 2", "Option 3", " Option 4"],
                 answer: "Option 2",
                 hint: "second",
+            }
+        ]
+    },
+    {
+        _id: uuid(),
+        title: 'The Office Quiz for true fans',
+        level: 'Easy',
+        categoryName: 'TV show',
+        questions:[
+            {
+                _id: uuid(),
+                question: '',
+                options: [],
+                answer: ''
             }
         ]
     }

@@ -1,18 +1,16 @@
 import "../auth.css";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useAuth, useToast } from "../../../contexts";
 import { useDocumentTitle } from "../../../custom_hooks";
-import {
-  InputField,
-  Button,
-  PasswordInput,
-} from "../../../components";
+import { InputField, Button, PasswordInput } from "../../../components";
 import { signIn } from "../../../services";
 
 export const SignIn = () => {
   useDocumentTitle("| Sign In");
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state?.from?.pathName || "/";
   const [error, setSigninError] = useState();
   const [inputValues, setInputValues] = useState({
     email: "",
@@ -33,7 +31,7 @@ export const SignIn = () => {
     });
     return () => {};
   }, []);
-  const submitHandler=(e) => {
+  const submitHandler = (e) => {
     e.preventDefault();
     signIn({
       setSigninError,
@@ -42,15 +40,13 @@ export const SignIn = () => {
       setIsUserLoggedIn,
       showToast,
       keepMeLoggedIn,
+      navigateBack: () => navigate(from, { replace: true }),
     });
-  }
+  };
 
   return (
     <main className="quiz-main center">
-      <form
-        className="flex-col signup-sec"
-        onSubmit={submitHandler}
-      >
+      <form className="flex-col signup-sec" onSubmit={submitHandler}>
         <p className="body-l">Login to my user account.</p>
 
         <InputField
@@ -75,11 +71,17 @@ export const SignIn = () => {
           />
           <span className="checkbox-text"> Keep me logged in. </span>
         </label>
-        <Button className='btn-primary' type="submit">
+        <Button className="btn-primary" type="submit">
           <span>validate</span>
           <i className="fa-solid fa-arrow-right-long"></i>
         </Button>
-        <Button className='outline-btn-primary' onClick={() => setInputValues(guestLogin)}>
+        <Button
+          className="outline-btn-primary"
+          onClick={() => {
+            setKeepMeLoggedIn(true);
+            setInputValues(guestLogin);
+          }}
+        >
           Login as Guest
         </Button>
         <p

@@ -7,7 +7,8 @@ export const signIn = async ({
     
     setIsUserLoggedIn,
     showToast,
-    keepMeLoggedIn
+    keepMeLoggedIn,
+    navigateBack
 }) => {
     try {
         const res = await axios.post("/api/auth/login", data);
@@ -34,7 +35,8 @@ export const signIn = async ({
                 localStorage.setItem('user', JSON.stringify({
                     firstName, lastName, email, createdAt, addresses
                 }))
-            }
+            } 
+            navigateBack();
         }
     } catch (e) {
         setSigninError(e.response.data.errors);
