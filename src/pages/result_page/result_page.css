@@ -1,0 +1,38 @@
+.result-sec {
+    background: var(--primary-color);
+    color: var(--light-text);
+    padding-bottom: 5rem;
+  }
+  .trophy-img {
+    max-width: 20rem;
+    width: 50%;
+  }
+  .score-card {
+    width: fit-content;
+    margin: auto;
+    margin-top: -3rem;
+  }
+  .score-col {
+    padding: 1rem 3rem;
+    border-right: 1px solid var(--primary-color);
+  }
+  .score-col:nth-child(2) {
+     color: var(--right-option);
+  }
+  .score-col:last-child {
+    border: none;
+    color: var(--wrong-option);
+  }
+  .result_ans-sec{
+    gap:2rem;
+  }
+  .score_card-buttons{
+    padding:2rem 3rem 0;
+    display:flex;
+    flex-direction:column;
+    align-self:stretch;
+    gap:1rem;
+  }
+  .score_card-buttons .btn{
+    padding:1rem;
+  }

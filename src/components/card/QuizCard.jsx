@@ -1,8 +1,13 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { HiArrowNarrowRight } from "../../assets/icons.js";
 
-export const CategoryCard = ({quiz}) => {
-  const {_id, title, questions, } = quiz
+export const QuizCard = ({ quiz }) => {
+  const navigate = useNavigate();
+  const { _id, title, image_src, questions } = quiz;
+
+  const clickTakeQuizHandler = () => {
+    navigate(`/quiz/rules`, { state: { title } });
+  };
   return (
     <div className="card w-30 basic">
       <div className="content">
@@ -13,15 +18,20 @@ export const CategoryCard = ({quiz}) => {
         />
 
         <div className="card-header">
-          <p className="body-l">The Office Quiz for true fans</p>
+          <p className="body-l">{title}</p>
 
           <div className="card-body">
             <p>Take this quiz to test yourself</p>
             <div className="flex-align-center">
               <p>{questions.length} Questions</p>
-              <Link to={`/quiz/${title}`} className=" take-quiz-btn link-text-primary ">
-                <p className="flex-align-center">Take Quiz <HiArrowNarrowRight /></p>
-              </Link>
+              <div
+                onClick={() => clickTakeQuizHandler()}
+                className="take-quiz-btn link-text-primary "
+              >
+                <p className="flex-align-center">
+                  Take Quiz <HiArrowNarrowRight />
+                </p>
+              </div>
             </div>
           </div>
         </div>

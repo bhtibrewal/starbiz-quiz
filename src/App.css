@@ -64,3 +64,7 @@ i.m-r {
   border-radius: 1rem;
   background: var(--light-bg);
 }
+.m-r{
+  margin-right: .5rem;
+  
+}

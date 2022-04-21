@@ -1,11 +1,11 @@
 import "./home_page.css";
-import { CategoryCard } from "../../components";
+import { QuizCard } from "../../components";
 import { useEffect, useState } from "react";
 import { getQuizzes } from "../../services";
 export const HomePage = () => {
   const [quizzes, setQuizzes] = useState([]);
   useEffect(() => {
-    getQuizzes({setQuizzes});
+    getQuizzes({ setQuizzes });
   }, []);
   const leaderBoard = [
     {
@@ -31,10 +31,9 @@ export const HomePage = () => {
         {/* <!-- grid --> */}
         <div className="categories-grid">
           {/* <!-- card start --> */}
-          {quizzes
-            .map((quiz, index) => {
-              return <CategoryCard key={index} quiz={quiz} />;
-            })}
+          {quizzes.map((quiz, index) => {
+            return <QuizCard key={index} quiz={quiz} />;
+          })}
         </div>
       </section>
 
@@ -45,7 +44,10 @@ export const HomePage = () => {
           {leaderBoard.map(
             ({ user_handle, user_name, user_pic, points }, index) => {
               return (
-                <div className="container leader-sec flex-align-center">
+                <div
+                  key={index}
+                  className="container leader-sec flex-align-center"
+                >
                   <div className="leader-rank">#{index}</div>
                   <div className="leader-img">
                     <img alt="leader avatar" src={user_pic} />

@@ -1,8 +1,8 @@
 import "./question_page.css";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { FaLightbulb } from "../../assets/icons";
-import { getQuiz } from "../../services";
+import { getQuiz, postResponse } from "../../services";
+import { QuestionCard } from "../../components";
 import { QuesNav, QuesFooter } from "./components";
 
 export const QuestionPage = () => {
@@ -23,6 +23,15 @@ export const QuestionPage = () => {
     }
     return () => clearInterval(interval);
   }, [timer]);
+
+  const selectOptionHandler = (option, questionId) => {
+    postResponse({
+      quizId: quiz._id,
+      questionId,
+      option,
+    });
+  };
+
   if (!quiz.questions) return <div>Loading...</div>;
 
   return (
@@ -30,28 +39,11 @@ export const QuestionPage = () => {
       <QuesNav quesNum={quesNum} timer={timer} totalQues={totalQues} />
 
       <section className="section">
-        <div className="question-sec flex-col">
-          <div className="flex-align-center ques-head">
-            <p className="body-l">
-              <strong>Question {quesNum}:</strong>
-            </p>
-            <button className="btn hint-btn">
-              <FaLightbulb />
-            </button>
-            <div className="hint-box">{quiz.questions[quesNum - 1].hint}</div>
-          </div>
-
-          <p className="body-l">{quiz?.questions[quesNum - 1].question}</p>
-          <div className="options">
-            {quiz?.questions[quesNum - 1].options.map((option, index) => {
-              return (
-                <button key={index + 1} className="btn btn-secondary">
-                  {String.fromCharCode(index + 65)}: {option}
-                </button>
-              );
-            })}
-          </div>
-        </div>
+        <QuestionCard
+          quesNum={quesNum}
+          content={quiz?.questions[quesNum - 1]}
+          selectOptionHandler={selectOptionHandler}
+        />
       </section>
       <QuesFooter
         quesNum={quesNum}

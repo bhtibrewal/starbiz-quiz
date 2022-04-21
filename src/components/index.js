@@ -1,5 +1,6 @@
 export { Button } from './buttons/Button';
-export { CategoryCard } from './card/CategoryCard';
+export { QuizCard } from './card/QuizCard';
+export { QuestionCard } from './card/QuestionCard';
 export { Footer } from './footer/Footer';
 export { Header } from './header/Header';
 export { Toast } from './toast/Toast';
