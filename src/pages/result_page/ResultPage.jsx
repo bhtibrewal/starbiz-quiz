@@ -8,7 +8,7 @@ export const ResultPage = () => {
     <main className="quiz-main">
       <section className="section result-sec flex-col">
         <div className="trophy-img">
-          <img src={trophy} />
+          <img src={trophy} alt ='trophy'/>
         </div>
         <p className="body-l">Well Played!!</p>
       </section>

@@ -6,7 +6,6 @@
   color: var(--light-bg);
   display: grid;
   place-content: center;
-  /* position: absolute; */
   background: var(--primary-color);
   width: 4rem;
   height: 4rem;

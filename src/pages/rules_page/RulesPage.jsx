@@ -1,7 +1,7 @@
 import "./rules_page.css";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useAuth } from "../../contexts";
+import { useAuth, useToast } from "../../contexts";
 import { FaDice } from "../../assets/icons";
 import { getQuiz, postAttemptedQuiz } from "../../services";
 
@@ -9,7 +9,8 @@ export const RulesPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const quizTitle = location.state.title;
-  const { isUserLoggedIn , userDataDispatch} = useAuth();
+  const { isUserLoggedIn, userDataDispatch } = useAuth();
+  const { showToast } = useToast();
   const [quiz, setQuiz] = useState({});
 
   useEffect(() => {
@@ -20,7 +21,7 @@ export const RulesPage = () => {
     if (isUserLoggedIn) {
       postAttemptedQuiz({ quiz, userDataDispatch });
       navigate(`/quiz/` + quizTitle);
-    } else navigate("/sign-in", {state: {from: location}});
+    } else navigate("/sign-in", { state: { from: location } });
   };
   return (
     <main className="quiz-main">

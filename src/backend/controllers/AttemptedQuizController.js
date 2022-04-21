@@ -21,7 +21,6 @@ export const postAttemptedQuizHandler = function (schema, request) {
             );
         }
         user.quizzesAttempted.push({ ...quiz, attemptedOn: formatDate(), score: 0 });
-        console.log(user.quizzesAttempted);
         return new Response(201, {}, { quizzesAttempted: user.quizzesAttempted });
     }
     return new Response(
@@ -35,7 +34,6 @@ export const postAttemptedQuizHandler = function (schema, request) {
 
 
 export const postResponseHandler = function (schema, request) {
-    console.log('here');
     const user = requiresAuth.call(this, request);
     if (user) {
         const { option } = JSON.parse(request.requestBody);
@@ -43,7 +41,6 @@ export const postResponseHandler = function (schema, request) {
         const quiz = user.quizzesAttempted.find(quiz => quiz._id === quizId);
         const Question = quiz.questions.find(question=> question._id===questionId);
         Question.choice = option;
-        console.log(user.quizzesAttempted);
         return new Response(201, {}, { quizzesAttempted: user.quizzesAttempted });
     }
     return new Response(

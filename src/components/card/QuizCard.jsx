@@ -3,11 +3,11 @@ import { HiArrowNarrowRight } from "../../assets/icons.js";
 
 export const QuizCard = ({ quiz }) => {
   const navigate = useNavigate();
-  const { _id, title, image_src,  questions } = quiz;
-  const clickTakeQuizHandler =()=>{
+  const { _id, title, image_src, questions } = quiz;
 
-    navigate(`/quiz/rules`, { state: { title } })
-  }
+  const clickTakeQuizHandler = () => {
+    navigate(`/quiz/rules`, { state: { title } });
+  };
   return (
     <div className="card w-30 basic">
       <div className="content">
@@ -25,7 +25,7 @@ export const QuizCard = ({ quiz }) => {
             <div className="flex-align-center">
               <p>{questions.length} Questions</p>
               <div
-                onClick={() =>clickTakeQuizHandler()}
+                onClick={() => clickTakeQuizHandler()}
                 className="take-quiz-btn link-text-primary "
               >
                 <p className="flex-align-center">
