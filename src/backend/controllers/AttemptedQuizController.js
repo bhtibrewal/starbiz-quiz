@@ -51,3 +51,23 @@ export const postResponseHandler = function (schema, request) {
         }
     );
 };
+/**
+ * This handler handles gets a quiz from db.
+ * send GET Request at /api/user/attempted-quizzes/:quizId
+ * */
+
+export const  getAttemptedQuizHandler = function (schema, request) {
+    const { quizTitle } = request.params;
+    try {
+        const quiz = schema.quizzesAttempted.findBy({ title: quizTitle });
+        return new Response(200, {}, { quiz });
+    } catch (error) {
+        return new Response(
+            500,
+            {},
+            {
+                error,
+            }
+        );
+    }
+};

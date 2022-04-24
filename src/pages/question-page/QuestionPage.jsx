@@ -1,25 +1,41 @@
 import "./question_page.css";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { getQuiz, postResponse } from "../../services";
-import { QuestionCard } from "../../components";
+import { useNavigate, useParams } from "react-router-dom";
+import {  postResponse } from "../../services";
+import { Loader, QuestionCard } from "../../components";
 import { QuesNav, QuesFooter } from "./components";
+import { useAuth, useQuiz, useToast } from "../../contexts";
 
 export const QuestionPage = () => {
   const { quizTitle } = useParams();
-  const [timer, setTimer] = useState(30);
+  const navigate = useNavigate();
+  const [timer, setTimer] = useState(180);
+  const {
+    userData: { quizzesAttempted },
+    userDataDispatch,
+  } = useAuth();
   const [quesNum, setQuesNum] = useState(1);
-  const [quiz, setQuiz] = useState({});
+  const { showToast } = useToast();
+  const { quiz, setQuiz } = useQuiz();
 
   useEffect(() => {
-    getQuiz({ setQuiz, quizTitle });
-  }, []);
+    const foundQuiz = quizzesAttempted?.find(
+      (quiz) => quiz.title === quizTitle
+    );
+    if (foundQuiz) {
+      setQuiz(foundQuiz);
+    }
+  }, [quizzesAttempted]);
 
   const totalQues = quiz?.questions?.length || 0;
+
   useEffect(() => {
     let interval;
     if (timer > 0) {
       interval = setInterval(() => setTimer((prev) => prev - 1), 1000);
+    } else {
+      showToast({ title: "times up", type: "error" });
+      navigate("/result");
     }
     return () => clearInterval(interval);
   }, [timer]);
@@ -28,11 +44,13 @@ export const QuestionPage = () => {
     postResponse({
       quizId: quiz._id,
       questionId,
+      userDataDispatch,
       option,
+      showToast,
     });
   };
 
-  if (!quiz.questions) return <div>Loading...</div>;
+  if (!quiz.questions) return <Loader />;
 
   return (
     <main className="quiz-main">

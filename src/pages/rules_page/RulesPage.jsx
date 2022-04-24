@@ -1,8 +1,8 @@
 import "./rules_page.css";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useAuth, useToast } from "../../contexts";
-import { FaDice } from "../../assets/icons";
+import { useAuth, useQuiz, useToast } from "../../contexts";
+import { FaDice, HiArrowNarrowRight  } from "../../assets/icons";
 import { getQuiz, postAttemptedQuiz } from "../../services";
 
 export const RulesPage = () => {
@@ -11,7 +11,7 @@ export const RulesPage = () => {
   const quizTitle = location.state.title;
   const { isUserLoggedIn, userDataDispatch } = useAuth();
   const { showToast } = useToast();
-  const [quiz, setQuiz] = useState({});
+  const {quiz, setQuiz} = useQuiz();
 
   useEffect(() => {
     getQuiz({ setQuiz, quizTitle });
@@ -46,7 +46,8 @@ export const RulesPage = () => {
             className="btn play-btn"
             onClick={() => playQuizClickHandler()}
           >
-            <span className="fa-solid play-btn-circle"></span>
+            <HiArrowNarrowRight />
+            <span >Start Quiz</span>
           </button>
         </div>
       </section>
