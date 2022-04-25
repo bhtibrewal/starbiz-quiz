@@ -35,7 +35,7 @@ export const RulesPage = () => {
             <li>Each question has a timer of 30sec.</li>
             <li>There is only one correct answer to each question.</li>
           </ol>
-          <label>
+          <label className="flex-align-center">
             <input type="checkbox" />
             <span className="checkbox-text">
               I agree to the rules and terms of this quiz.
