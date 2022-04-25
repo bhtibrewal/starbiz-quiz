@@ -13,6 +13,9 @@
 .ques-head p {
   margin: auto;
 }
+.points {
+  justify-self: flex-end;
+}
 .hint-btn {
   justify-self: flex-end;
   color: var(--primary-color);
@@ -29,19 +32,19 @@
   flex-direction: column;
   gap: 2rem;
 }
-.options .btn-secondary {
+.options .btn {
   min-height: 5rem;
   width: 100%;
 }
-.options > * span {
-  width: 4rem;
-  padding: 1rem;
-  background: var(--quiz-bg);
-  border-radius: 50%;
-  aspect-ratio: 1;
+.correct-answer {
+  color: green;
+  font-weight: bolder;
 }
-.right-op,
-.wrong-op {
+.wrong-answer {
+  color: red;
+  font-weight: bolder;
+}
+.option {
   position: relative;
 }
 .wrong-op {
@@ -50,26 +53,22 @@
 .right-op {
   background: var(--right-option);
 }
-.right-op:after,
-.wrong-op:after {
-  font-family: "Font Awesome 6 Free"; /* for font awesome icons */
-  font-weight: 900; /* for font awesome icons */
 
-  padding: 2rem;
-  position: absolute;
-  top: 0;
-  right: -11rem;
-}
-.right-op:after {
-  content: "\f00c right";
-  color: var(--right-option);
-}
-.wrong-op:after {
-  content: "\f00d wrong";
-  color: var(--wrong-option);
-}
 .ques-nav {
   justify-content: space-between;
-  max-width: 1024px;
+  max-width: 10.24rem;
   margin: auto;
+}
+.hint-sec {
+  position: relative;
+}
+.hint-box {
+  display: none;
+}
+.hint-btn:hover + .hint-box {
+  display: block;
+  padding: 1rem;
+  position: absolute;
+  background-color: var(--light-bg);
+  border: thin solid var(--primary-color);
 }

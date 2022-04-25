@@ -1,0 +1,46 @@
+.quiz-header {
+  padding: 1.5rem 3rem;
+  background: var(--quiz-header);
+  justify-content: space-between;
+  color: var(--light-text);
+}
+.logo,
+.right-side > * {
+  padding: 1rem;
+  cursor: pointer;
+}
+.right-side {
+  gap: 4rem;
+}
+.right-side > *:hover {
+  color: var(--primary-color);
+}
+
+.user {
+  cursor: pointer;
+  position: relative;
+}
+.user:hover .user-dropdown {
+  display: flex;
+}
+.user-dropdown {
+  position: absolute;
+  top: 5rem;
+  background: var(--light-bg);
+  color: var(--primary-text);
+  box-shadow: 0 0 10px -2px var(--secondary-text);
+  width: 20rem;
+  padding: 1rem 0;
+  border-radius: 0.4rem;
+  display: none;
+  z-index: var(--user-dropdown-index);
+}
+.user-dropdown > * {
+  align-self: stretch;
+  padding: 1rem 1rem;
+  justify-content: space-between;
+}
+.user-dropdown > *:hover {
+  background: var(--primary-text);
+  color: var(--light-bg);
+}

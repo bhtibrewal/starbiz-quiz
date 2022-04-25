@@ -6,3 +6,4 @@ export { Header } from './header/Header';
 export { Toast } from './toast/Toast';
 export { InputField } from './input/InputField';
 export { PasswordInput } from './input/PasswordInput';
+export {Loader} from './loader/Loader';

@@ -12,7 +12,7 @@ export const QuesNav = ({ timer, quesNum, totalQues }) => {
             {quesNum}/{totalQues}
           </b>
         </p>
-        <p title="Timer" className={timer < 5 ? "timer-alert" : ""}>
+        <p title="Timer" className={`flex-align-center ${timer < 5 ? "timer-alert" : ""}`}>
           <FaRegClock />
           Time Left: <b>{timer}sec</b>
         </p>

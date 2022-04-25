@@ -1,5 +1,5 @@
 import "./home_page.css";
-import { QuizCard } from "../../components";
+import { Loader, QuizCard } from "../../components";
 import { useEffect, useState } from "react";
 import { getQuizzes } from "../../services";
 export const HomePage = () => {
@@ -19,10 +19,11 @@ export const HomePage = () => {
       user_pic:
         "https://img.freepik.com/free-vector/gamer-mascot-geek-boy-esports-logo-avatar-with-headphones-glasses-cartoon-character_8169-228.jpg",
       user_handle: "Marvel",
-      user_name: "Tanay Pratap",
+      user_name: "Tony Stark",
       points: 280,
     },
   ];
+  if (!quizzes) return <Loader />;
   return (
     <main className="main quiz-main">
       {/* <!-- categories section --> */}
@@ -31,8 +32,8 @@ export const HomePage = () => {
         {/* <!-- grid --> */}
         <div className="categories-grid">
           {/* <!-- card start --> */}
-          {quizzes.map((quiz, index) => {
-            return <QuizCard key={index} quiz={quiz} />;
+          {quizzes.map((quiz) => {
+            return <QuizCard key={quiz._id} quiz={quiz} />;
           })}
         </div>
       </section>

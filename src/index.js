@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import { makeServer } from './server';
-import { AuthProvider, ToastProvider } from './contexts';
+import { AuthProvider, QuizProvider, ToastProvider } from './contexts';
 
 
 makeServer();
@@ -14,7 +14,9 @@ root.render(
     <Router>
       <AuthProvider>
         <ToastProvider>
+          <QuizProvider>
           <App />
+          </QuizProvider>
         </ToastProvider>
       </AuthProvider>
     </Router>

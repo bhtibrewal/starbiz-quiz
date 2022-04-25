@@ -21,26 +21,11 @@ i.m-r {
   background-color: var(--quiz-bg);
   color: var(--primary-text);
 }
-.quiz-header {
-  padding: 3rem;
-  background: var(--quiz-header);
-  justify-content: space-between;
-  color: var(--light-text);
-}
+
 .quiz-main {
   width: 100%;
 }
-.logo,
-.right-side > * {
-  padding: 1rem;
-  cursor: pointer;
-}
-.right-side {
-  gap: 4rem;
-}
-.right-side > *:hover {
-  color: var(--primary-color);
-}
+
 /* utils */
 .flex-col {
   display: flex;
@@ -66,5 +51,17 @@ i.m-r {
 }
 .m-r{
   margin-right: .5rem;
-  
+}
+
+/* cards */
+.card{
+  height: 100%;
+}
+.card .content{
+height:100%;
+/* justify */
+}
+.card .card-header{
+  flex-grow:1;
+  justify-content:space-around;
 }

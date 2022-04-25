@@ -1,20 +1,10 @@
-.play-btn-circle {
-  position: relative;
-}
-.play-btn-circle:before {
-  content: "\f061";
+.play-btn {
   color: var(--light-bg);
-  display: grid;
-  place-content: center;
   background: var(--primary-color);
-  width: 4rem;
+  width: max-content;
   height: 4rem;
   padding: 2rem;
-  border-radius: 2rem;
-}
-.play-btn-circle:hover::before {
-  content: "\f061 \00a0 Start Quiz";
-  width: max-content;
+  border-radius: 1rem;
 }
 .rules-sec {
   gap: 2rem;
