@@ -10,7 +10,7 @@ export const SignIn = () => {
   useDocumentTitle("| Sign In");
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location?.state?.from?.pathName || "/";
+  const from = location?.state?.from?.pathname || "/";
   const [error, setSigninError] = useState();
   const [inputValues, setInputValues] = useState({
     email: "",

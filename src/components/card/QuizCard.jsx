@@ -11,11 +11,7 @@ export const QuizCard = ({ quiz }) => {
   return (
     <div className="card w-30 basic">
       <div className="content">
-        <img
-          className="card-img"
-          src="https://media.proprofs.com/images/QM/user_images/2503852/New%20Project%20(83)(90).jpg"
-          alt=" the office "
-        />
+        <img className="card-img" src={image_src} alt=" the office " />
 
         <div className="card-header">
           <p className="body-l">{title}</p>

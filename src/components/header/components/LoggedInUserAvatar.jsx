@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { useAuth, useToast } from "../../../contexts";
-import { logOut } from "../../../services";
+import { useAuth, useToast } from "contexts";
+import { logOut } from "services";
 
 export const LoggedInUserAvatar = () => {
   const { setIsUserLoggedIn, userDataDispatch } = useAuth();

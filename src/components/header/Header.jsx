@@ -1,13 +1,12 @@
-import './header.css';
+import "./header.css";
 import { Link } from "react-router-dom";
-import { useAuth } from "../../contexts";
-import { FaCloudMoon, FaUser } from "../../assets/icons";
+import { useAuth, useTheme } from "contexts";
+import { FaCloudMoon, FaUser } from "assets/icons";
 import { LoggedInUserAvatar } from "./components/LoggedInUserAvatar";
 
 export const Header = () => {
-
   const { isUserLoggedIn } = useAuth();
-
+  const { setDarkMode } = useTheme();
   return (
     <header className="quiz-header flex-align-center">
       <Link to="/">
@@ -22,7 +21,7 @@ export const Header = () => {
             <FaUser />
           </Link>
         )}
-        <span>
+        <span onClick={() => setDarkMode((prev) => !prev)}>
           <FaCloudMoon />
         </span>
       </div>

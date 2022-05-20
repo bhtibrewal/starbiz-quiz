@@ -1,29 +1,9 @@
 import "./home_page.css";
-import { Loader, QuizCard } from "../../components";
-import { useEffect, useState } from "react";
-import { getQuizzes } from "../../services";
+import { leaderBoard } from "./data/leaderBoard";
+import { categories } from "./data/categories";
+import { Link } from "react-router-dom";
+
 export const HomePage = () => {
-  const [quizzes, setQuizzes] = useState([]);
-  useEffect(() => {
-    getQuizzes({ setQuizzes });
-  }, []);
-  const leaderBoard = [
-    {
-      user_pic:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGtnn5CQr_nEzmp2EDlJAvgXaA4n1taH-sDQ&usqp=CAU",
-      user_handle: "Avenger",
-      user_name: "Bhavika Tibrewal",
-      points: 300,
-    },
-    {
-      user_pic:
-        "https://img.freepik.com/free-vector/gamer-mascot-geek-boy-esports-logo-avatar-with-headphones-glasses-cartoon-character_8169-228.jpg",
-      user_handle: "Marvel",
-      user_name: "Tony Stark",
-      points: 280,
-    },
-  ];
-  if (!quizzes) return <Loader />;
   return (
     <main className="main quiz-main">
       {/* <!-- categories section --> */}
@@ -32,8 +12,16 @@ export const HomePage = () => {
         {/* <!-- grid --> */}
         <div className="categories-grid">
           {/* <!-- card start --> */}
-          {quizzes.map((quiz) => {
-            return <QuizCard key={quiz._id} quiz={quiz} />;
+          {categories.map(({ categoryName, image }, index) => {
+            return (
+              <Link
+                to={`/quizzes/${categoryName}`}
+                key={index}
+                className="card category-card"
+              >
+                <img src={image} alt={categoryName} />
+              </Link>
+            );
           })}
         </div>
       </section>

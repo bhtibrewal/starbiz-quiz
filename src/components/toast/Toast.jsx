@@ -1,11 +1,11 @@
 import "./toast.css";
-import { useToast } from "../../contexts";
+import { useToast } from "contexts";
 import { useEffect } from "react";
 import {
   FaInfoCircle,
   FaExclamationCircle,
   FaCheckCircle,
-  IoCloseCircleOutline
+  IoCloseCircleOutline,
 } from "../../assets/icons";
 
 export const Toast = ({ position }) => {
@@ -39,7 +39,7 @@ export const Toast = ({ position }) => {
               className="btn toast-close-btn"
               onClick={() => deleteToast(id)}
             >
-             <IoCloseCircleOutline />
+              <IoCloseCircleOutline />
             </button>
           </div>
         );
