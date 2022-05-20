@@ -3,7 +3,7 @@ import { v4 as uuid } from 'uuid';
 /* 
 quizzes data 
  */
-// The Office Quiz for true fans
+
 export const quizzes = [
     {
         _id: uuid(),
