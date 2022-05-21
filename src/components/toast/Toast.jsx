@@ -6,7 +6,7 @@ import {
   FaExclamationCircle,
   FaCheckCircle,
   IoCloseCircleOutline,
-} from "../../assets/icons";
+} from "assets/icons";
 
 export const Toast = ({ position }) => {
   const { toastList, deleteToast } = useToast();

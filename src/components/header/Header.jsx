@@ -1,5 +1,6 @@
 import "./header.css";
 import { Link } from "react-router-dom";
+import {Button} from 'components';
 import { useAuth, useTheme } from "contexts";
 import { FaCloudMoon, FaUser } from "assets/icons";
 import { LoggedInUserAvatar } from "./components/LoggedInUserAvatar";
@@ -21,9 +22,9 @@ export const Header = () => {
             <FaUser />
           </Link>
         )}
-        <span onClick={() => setDarkMode((prev) => !prev)}>
+        <Button onClick={() => setDarkMode((prev) => !prev)}>
           <FaCloudMoon />
-        </span>
+        </Button>
       </div>
     </header>
   );
