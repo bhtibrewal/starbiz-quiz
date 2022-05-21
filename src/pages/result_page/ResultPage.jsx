@@ -4,11 +4,13 @@ import { FaStar, FaCheck, IoCloseOutline } from "../../assets/icons";
 import { QuestionCard } from "../../components";
 import { useQuiz } from "../../contexts";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const ResultPage = () => {
+  const navigate = useNavigate();
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [wrongAnswers, setWrongAnswers] = useState(0);
-  const calculateScore = () => correctAnswers*100;
+  const calculateScore = () => correctAnswers * 100;
   const { quiz } = useQuiz();
 
   useEffect(() => {
@@ -65,7 +67,12 @@ export const ResultPage = () => {
         </div>
         <div className="score_card-buttons">
           <button className="btn btn-primary">Take another quiz</button>
-          <button className="btn outline-btn-secondary">Home</button>
+          <button
+            className="btn outline-btn-secondary"
+            onClick={() => navigate("/")}
+          >
+            Home
+          </button>
         </div>
       </section>
 

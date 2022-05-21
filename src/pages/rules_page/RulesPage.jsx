@@ -1,8 +1,8 @@
 import "./rules_page.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useAuth, useQuiz, useToast } from "../../contexts";
-import { FaDice, HiArrowNarrowRight  } from "../../assets/icons";
+import { FaDice, HiArrowNarrowRight } from "../../assets/icons";
 import { getQuiz, postAttemptedQuiz } from "../../services";
 
 export const RulesPage = () => {
@@ -11,17 +11,24 @@ export const RulesPage = () => {
   const quizTitle = location.state.title;
   const { isUserLoggedIn, userDataDispatch } = useAuth();
   const { showToast } = useToast();
-  const {quiz, setQuiz} = useQuiz();
+  const { quiz, setQuiz } = useQuiz();
+  const [isAgreed, setIsAgreed] = useState(false);
 
   useEffect(() => {
     getQuiz({ setQuiz, quizTitle });
   }, []);
 
   const playQuizClickHandler = () => {
-    if (isUserLoggedIn) {
-      postAttemptedQuiz({ quiz, userDataDispatch });
-      navigate(`/quiz/` + quizTitle);
-    } else navigate("/sign-in", { state: { from: location } });
+    if (isAgreed) {
+      if (isUserLoggedIn) {
+        postAttemptedQuiz({ quiz, userDataDispatch });
+        navigate(`/quiz/` + quizTitle);
+      } else navigate("/sign-in", { state: { from: location } });
+    } else
+      showToast({
+        title: "Agree to the terms before proceeding",
+        type: "primary",
+      });
   };
   return (
     <main className="quiz-main">
@@ -37,7 +44,11 @@ export const RulesPage = () => {
           </ol>
           <label className="flex-align-center">
             <input type="checkbox" />
-            <span className="checkbox-text">
+            <span
+              className="checkbox-text"
+              checked={isAgreed}
+              onClick={() => setIsAgreed((prev) => !prev)}
+            >
               I agree to the rules and terms of this quiz.
             </span>
           </label>
@@ -47,7 +58,7 @@ export const RulesPage = () => {
             onClick={() => playQuizClickHandler()}
           >
             <HiArrowNarrowRight />
-            <span >Start Quiz</span>
+            <span>Start Quiz</span>
           </button>
         </div>
       </section>

@@ -8,6 +8,11 @@
   --wrong-option: red;
   --right-option: green;
 }
+.quiz-body.dark-theme {
+  --quiz-bg: #171718;
+  --primary-text: #f1f1f1;
+  --light-bg: #0e131f;
+}
 @media screen and (max-width: 300px) {
   html {
     font-size: 40%;
@@ -20,6 +25,7 @@ i.m-r {
 .quiz-body {
   background-color: var(--quiz-bg);
   color: var(--primary-text);
+  min-height: 100vh;
 }
 
 .quiz-main {
@@ -49,19 +55,19 @@ i.m-r {
   border-radius: 1rem;
   background: var(--light-bg);
 }
-.m-r{
-  margin-right: .5rem;
+.m-r {
+  margin-right: 0.5rem;
 }
 
 /* cards */
-.card{
+.card {
   height: 100%;
 }
-.card .content{
-height:100%;
-/* justify */
+.card .content {
+  height: 100%;
+  /* justify */
 }
-.card .card-header{
-  flex-grow:1;
-  justify-content:space-around;
+.card .card-header {
+  flex-grow: 1;
+  justify-content: space-around;
 }

@@ -1,14 +1,23 @@
-.categories-sec{
-    display:flex;
-    flex-direction:column;
-    align-items: center;
-    gap:2rem;
+.categories-sec {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
 }
+.category-card {
+  max-width: 25rem;
+  position: relative;
+}
+.category-card > img {
+  width: 100%;
+  height: 100%;
+}
+
 .categories-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   grid-gap: 2rem;
-  align-self : stretch;
+  align-self: stretch;
 }
 .categories-sec .card {
   border: none;
@@ -20,7 +29,7 @@
 }
 .take-quiz-btn {
   margin-left: auto;
-  cursor:pointer;
+  cursor: pointer;
 }
 
 /* leader section */

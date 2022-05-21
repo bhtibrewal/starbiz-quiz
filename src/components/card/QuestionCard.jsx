@@ -7,6 +7,7 @@ export const QuestionCard = ({
   showResult = false,
 }) => {
   const { _id, question, options, choice, answer, hint } = content;
+
   const checkCorrectOrWrongOption = (option) => {
     if (option === answer) {
       return "right";
@@ -16,7 +17,6 @@ export const QuestionCard = ({
   };
   const isUserChoiceCorrect = choice == answer;
   
-
   return (
     <div className="question-sec flex-col">
       <div className="flex-align-center ques-head">

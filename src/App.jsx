@@ -6,26 +6,31 @@ import {
   QuestionPage,
   ResultPage,
   RulesPage,
+  Quizzes,
   SignIn,
   SignUp,
-} from "./pages";
+  PageNotFound,
+} from "pages";
 
-import { Footer, Header } from "./components";
-import { Toast } from "./components/toast/Toast";
+import { Header, Toast } from "components";
+import { useTheme } from "contexts";
 
 function App() {
+  const { darkMode } = useTheme();
+  
   return (
-    <div className="quiz-body">
+    <div className={`quiz-body ${darkMode ? "dark-theme" : ""}`}>
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/quiz/:quizTitle" element={<QuestionPage />} />
+        <Route path="/quizzes/:categoryName" element={<Quizzes />} />
         <Route path="/quiz/rules" element={<RulesPage />} />
+        <Route path="/quiz/:quizTitle" element={<QuestionPage />} />
         <Route path="/result" element={<ResultPage />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
-      {/* <Footer /> */}
       <Toast position="top-right" />
     </div>
   );
